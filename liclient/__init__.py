@@ -114,6 +114,8 @@ class LinkedInAPI(object):
             kwargs['before'] = self.dt_obj_to_string(kwargs['before']) if kwargs['before'] else None
         if 'after' in kwargs.keys():
             kwargs['after'] = self.dt_obj_to_string(kwargs['after']) if kwargs['after'] else None
+        if 'scope' in kwargs.keys():
+            kwargs['scope'] = self.dt_obj_to_string(kwargs['scope']) if kwargs['scope'] else None
         
         user_token, url = self.prepare_request(access_token, self.api_network_update_url, kwargs)
         client = oauth.Client(self.consumer, user_token)
